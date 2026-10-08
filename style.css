@@ -1,0 +1,226 @@
+:root {
+  --latar: #eef2f5;
+  --kartu: #ffffff;
+  --tinta: #17233a;
+  --tinta-lembut: #5b6b82;
+  --garis: #d5dde6;
+  --aksen: #0f7b6c;
+  --bahaya: #b3402f;
+  --masuk: #0f7b6c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Pastikan atribut hidden selalu menyembunyikan elemen */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  margin: 0;
+  background: var(--latar);
+  color: var(--tinta);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.5;
+}
+
+.app {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+/* Ringkasan total */
+.ringkasan {
+  margin-bottom: 24px;
+}
+
+.ringkasan-label {
+  margin: 0;
+  color: var(--tinta-lembut);
+}
+
+.ringkasan-total {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.ringkasan-total.negatif {
+  color: var(--bahaya);
+}
+
+.ringkasan-rinci {
+  display: flex;
+  gap: 28px;
+  margin-top: 10px;
+}
+
+.ringkasan-rinci span {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--tinta-lembut);
+}
+
+.angka-masuk {
+  color: var(--masuk);
+}
+
+.angka-keluar {
+  color: var(--bahaya);
+}
+
+/* Pilihan jenis: tabungan / pengeluaran */
+.jenis {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  padding: 4px;
+  background: var(--latar);
+  border-radius: 8px;
+}
+
+.jenis-opsi {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.jenis-opsi input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.jenis-opsi span {
+  display: block;
+  padding: 9px 8px;
+  text-align: center;
+  font-weight: 600;
+  color: var(--tinta-lembut);
+  border-radius: 6px;
+}
+
+.jenis-opsi input:checked + span {
+  background: var(--kartu);
+  color: var(--tinta);
+  box-shadow: 0 1px 2px rgba(23, 35, 58, 0.15);
+}
+
+.jenis-opsi input:focus-visible + span {
+  outline: 2px solid var(--aksen);
+  outline-offset: 2px;
+}
+
+/* Form */
+.form {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  margin-bottom: 28px;
+  background: var(--kartu);
+  border: 1px solid var(--garis);
+  border-radius: 10px;
+}
+
+.baris {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--tinta-lembut);
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  font: inherit;
+  color: var(--tinta);
+  background: #fff;
+  border: 1px solid var(--garis);
+  border-radius: 6px;
+}
+
+input:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--aksen);
+  outline-offset: 2px;
+}
+
+button {
+  padding: 11px 14px;
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+  background: var(--aksen);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+/* Daftar transaksi */
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+
+.kosong {
+  color: var(--tinta-lembut);
+}
+
+.daftar {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--garis);
+}
+
+.item-nama {
+  font-weight: 600;
+}
+
+.item-info {
+  font-size: 0.85rem;
+  color: var(--tinta-lembut);
+}
+
+.item-jumlah {
+  font-weight: 600;
+}
+
+.hapus {
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  color: var(--tinta-lembut);
+  background: transparent;
+  border: 1px solid var(--garis);
+}
+
+.hapus:hover {
+  color: var(--bahaya);
+  border-color: var(--bahaya);
+  filter: none;
+}

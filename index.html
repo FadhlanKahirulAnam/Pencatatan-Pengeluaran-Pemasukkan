@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catatan Tabungan & Pengeluaran</title>
+  <meta name="theme-color" content="#0f7b6c">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" type="image/png" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="ringkasan">
+      <p class="ringkasan-label">Saldo tabungan</p>
+      <p id="saldo" class="ringkasan-total">Rp0</p>
+
+      <div class="ringkasan-rinci">
+        <div>
+          <span>Tabungan masuk</span>
+          <strong id="total-masuk" class="angka-masuk">Rp0</strong>
+        </div>
+        <div>
+          <span>Pengeluaran</span>
+          <strong id="total-keluar" class="angka-keluar">Rp0</strong>
+        </div>
+      </div>
+    </header>
+
+    <form id="form-transaksi" class="form">
+      <div class="jenis" role="radiogroup" aria-label="Jenis transaksi">
+        <label class="jenis-opsi">
+          <input type="radio" name="jenis" value="keluar" checked>
+          <span>Pengeluaran</span>
+        </label>
+        <label class="jenis-opsi">
+          <input type="radio" name="jenis" value="masuk">
+          <span>Tabungan masuk</span>
+        </label>
+      </div>
+
+      <label>
+        Deskripsi
+        <input type="text" id="deskripsi" placeholder="Contoh: Jajan" required>
+      </label>
+
+      <div class="baris">
+        <label>
+          Jumlah (Rp)
+          <input type="number" id="jumlah" min="1" placeholder="" required>
+        </label>
+
+        <label id="label-kategori">
+          Kategori
+          <select id="kategori">
+            <option>Makanan/Minuman</option>
+            <option>Transportasi</option>
+            <option>Tagihan</option>
+            <option>Belanja</option>
+            <option>Main</option>
+            <option>Lainnya</option>
+          </select>
+        </label>
+      </div>
+
+      <label>
+        Tanggal
+        <input type="date" id="tanggal" required>
+      </label>
+
+      <button type="submit" id="tombol-simpan">Tambah pengeluaran</button>
+    </form>
+
+    <section>
+      <h2>Riwayat</h2>
+      <p id="kosong" class="kosong">Belum ada catatan.</p>
+      <ul id="daftar" class="daftar"></ul>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
